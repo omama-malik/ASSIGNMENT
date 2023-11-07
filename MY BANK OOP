@@ -1,0 +1,42 @@
+
+class Account {
+    private accountNumber: number;
+    private balance: number;
+    
+    constructor(accountNumber: number, initialBalance: number) {
+        this.accountNumber = accountNumber;
+        this.balance = initialBalance;
+    }
+    
+    deposit(amount: number): void {
+        this.balance += amount;
+        console.log(`Deposited ${amount} into Account ${this.accountNumber}.`);
+    }
+    
+    withdraw(amount: number): void {
+        if (amount <= this.balance) {
+            this.balance -= amount;
+            console.log(`Withdrawn ${amount} from Account ${this.accountNumber}.`);
+        } else {
+            console.log(`Insufficient funds in Account ${this.accountNumber}.`);
+        }
+    }
+    
+    checkBalance(): void {
+        console.log(`Account ${this.accountNumber} has a balance of ${this.balance}.`);
+    }
+}
+
+// Creating instances of Account class
+const account1 = new Account(12345, 1000);
+const account2 = new Account(54321, 500);
+
+// Testing the bank system
+account1.checkBalance(); // Output: Account 12345 has a balance of 1000.
+account1.deposit(500);   // Output: Deposited 500 into Account 12345.
+account1.checkBalance(); // Output: Account 12345 has a balance of 1500.
+account1.withdraw(2000); // Output: Insufficient funds in Account 12345.
+account1.withdraw(100);  // Output: Withdrawn 100 from Account 12345.
+account1.checkBalance(); // Output: Account 12345 has a balance of 1400.
+
+account2.checkBalance(); // Output: Account 54321 has a balance of 500.
