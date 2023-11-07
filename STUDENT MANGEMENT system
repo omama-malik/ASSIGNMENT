@@ -1,0 +1,55 @@
+class School{
+    name:string;
+    students:Student[]=[];
+    teachers:Teacher[]=[];
+
+    addStudent(stObj:Student){
+        this.students.push(stObj)
+    }
+    addteacher(teachObj:Teacher){
+        this.teachers.push(teachObj)
+    }
+  
+    constructor (name:string){
+        this.name=name;
+    }
+}
+class Student{
+    name:string;
+    age:number;
+    schoolname:string;
+
+    constructor(name:string, age:number,schoolname:string){
+        this.name= name;
+        this.age=age;
+        this.schoolname=schoolname
+
+
+    }
+}
+
+class Teacher extends Student{}
+
+let school1 = new School ("alpha")
+let school2 = new School ("beta")
+
+
+ let s1 = new Student("Bilal",12,school1.name)
+ let s2 = new Student("umer",13,school2.name)
+ let s3 = new Student("abubaker",14,school1.name)
+let t1= new Teacher("aliya",26,school1.name)
+let t2= new Teacher("shumaila",25,school2.name)
+
+
+ school1.addStudent(s1);
+ school2.addStudent(s2);
+ school1.addStudent(s3);
+
+
+ 
+ school1.addteacher(t1);
+ school2.addteacher(t2);
+
+
+console.log(school1);
+console.log(school2);
